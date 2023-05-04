@@ -54,6 +54,10 @@
     <Compile Include="DesignPatterns\SingletonPattern\DBTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRep\BaseRepository.cs" />
+    <Compile Include="Repositories\ConcRep\ClubRepository.cs" />
+    <Compile Include="Repositories\ConcRep\LessonRepository.cs" />
+    <Compile Include="Repositories\ConcRep\NoteRepository.cs" />
+    <Compile Include="Repositories\ConcRep\StudentRepository.cs" />
     <Compile Include="Repositories\IntRep\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +78,7 @@
       <Name>Project.MAP</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\ConcRep\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

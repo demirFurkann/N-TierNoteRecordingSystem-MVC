@@ -15,6 +15,7 @@ namespace Project.DAL.Init
     {
         protected override void Seed(MyContext context)
         {
+            Random rnd = new Random();
             #region Öğrenci Ekleme
             for (int i = 0; i < 10; i++)
             {
@@ -24,44 +25,52 @@ namespace Project.DAL.Init
                 s.Image = new Internet().Avatar();
                 s.Gender = new Person().Gender.ToString();
                 context.Students.Add(s);
+
             }
             context.SaveChanges();
+
+
             #endregion
 
             #region Ders Ekleme
             List<string> dersler = new List<string>() { "Matematik", "Fizik", "Kimya", "Biyoloji", "Tarih" };
-            foreach (var item in dersler)
+            foreach (string item in dersler)
             {
                 Lesson l = new Lesson();
+
                 l.LessonName = item;
+
                 context.Lessons.Add(l);
             }
             context.SaveChanges();
             #endregion
 
             #region Not Ekleme
-            List<Student> ogrenciler = context.Students.ToList();
-            List<Lesson>  dersListesi =  context.Lessons.ToList();
-
-            foreach (Student ogrenci in ogrenciler)
+            List<Student> students = context.Students.ToList();
+            List<Lesson> lessons = context.Lessons.ToList();
+            foreach (Student student in students)
             {
-                foreach (Lesson ders in dersListesi)
+                foreach (Lesson lesson in lessons)
                 {
                     Note n = new Note();
-
-                    n.Exam1 = new Random().Next(50,100);  
-                    n.Exam2 = new Random().Next(50,100);  
-                    n.Exam3 = new Random().Next(50,100);  
-                    n.Project = new Random().Next(50,100);
+                    n.StudentID = student.ID;
+                    n.LessonID = lesson.ID;
+                    n.Exam1 = rnd.Next(10, 100);
+                    n.Exam2 = rnd.Next(10, 100);
+                    n.Exam3 = rnd.Next(10, 100);
+                    n.Project = rnd.Next(10, 100);
                     n.Avarage = Convert.ToInt16((n.Exam1 + n.Exam2 + n.Exam3 + n.Project) / 4);
-                    n.Case = n.Avarage  >= 50 ? true : false;   
+                    n.Case = n.Avarage >= 50 ? true : false;
                     context.Notes.Add(n);
                 }
-                context.SaveChanges();
             }
-         
+            context.SaveChanges();
             #endregion
-
         }
+
+
+
+
+
     }
 }
