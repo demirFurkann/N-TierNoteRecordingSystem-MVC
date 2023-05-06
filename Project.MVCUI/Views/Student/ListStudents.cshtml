@@ -1,0 +1,32 @@
+﻿@model StudentListPageVM
+@{
+    ViewBag.Title = "ListStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>Öğrenci ID</th>
+            <th>Öğrenci İsmi</th>
+            <th>Öğrenci Soyİsim</th>
+            <th>Cinsiyet</th>
+            <th>Kulübü</th>
+
+        </tr>
+        <tbody>
+             @foreach (StudentVM item in Model.Students)
+             {
+                 <tr>
+                     <th>@item.ID</th>
+                     <th>@item.FirstName</th>
+                     <th>@item.LastName</th>
+                     <th>@item.Gender</th>
+                     <th>@item.Club</th>
+                 </tr>
+             }
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,32 @@
+﻿@model ClubListPageVM
+@{
+    ViewBag.Title = "ListClubs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>Kulüp ID</th>
+            <th>Kulüp İsmi</th>
+            <th>Kontejyan</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        <tbody>
+            @foreach (ClubVM item in Model.Clubs)
+            {
+               <tr>
+                   <td>@item.ID</td>
+                   <td>@item.ClubName</td>
+                   <td>@item.Quato</td>
+                   <td>@Html.ActionLink("Sil", "DeleteClub", new {id=item.ID},new {@class="btn btn-warning"})</td>
+                   <td>@Html.ActionLink("Güncelle", "UpdateClub", new {id=item.ID},new {@class="btn btn-danger"})</td>
+                   
+               </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@Html.ActionLink("Yeni Kulüp Ekle", "AddClub", null, new {@class="btn btn-primary"})
+
