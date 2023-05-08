@@ -134,6 +134,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomTools\ImageUploader.cs" />
     <Compile Include="Models\PageVMs\ClubAddUpdatePageVM.cs" />
     <Compile Include="Models\PageVMs\ClubListPageVM.cs" />
     <Compile Include="Models\PageVMs\LessonAddUpdatePageVM.cs" />
@@ -563,6 +564,7 @@
     <Content Include="Views\Lesson\UpdateLesson.cshtml" />
     <Content Include="Views\Club\AddClub.cshtml" />
     <Content Include="Views\Club\UpdateClub.cshtml" />
+    <Content Include="Views\Student\AddStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

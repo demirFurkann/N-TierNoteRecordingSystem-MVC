@@ -13,6 +13,7 @@ namespace Project.VM.PureVMs
         public string LastName { get; set; }
         public string Image { get; set; }
         public string Gender { get; set; }
+        public int? ClubID { get; set; }
         public string Club { get; set; }
     }
 }

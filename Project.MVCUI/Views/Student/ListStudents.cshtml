@@ -12,6 +12,8 @@
             <th>Öğrenci Soyİsim</th>
             <th>Cinsiyet</th>
             <th>Kulübü</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
 
         </tr>
         <tbody>
@@ -23,10 +25,13 @@
                      <th>@item.LastName</th>
                      <th>@item.Gender</th>
                      <th>@item.Club</th>
+                     <th>@Html.ActionLink("Sil", "DeleteStudent", new { id = item.ID }, new {@class="btn btn-warning"})</th>
+                     <th>@Html.ActionLink("Güncelle", "UpdateStudent", new { id = item.ID }, new {@class="btn btn-danger"})</th>
                  </tr>
              }
         </tbody>
     </table>
 
 </div>
+@Html.ActionLink("Öğrenci Ekle", "AddStudent", null, new {@class="btn btn-primary"})
 
