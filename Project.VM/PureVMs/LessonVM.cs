@@ -10,6 +10,7 @@ namespace Project.VM.PureVMs
     {
         public int ID { get; set; }
         public string LessonName { get; set; }
+        public string Status { get; set; }
 
     }
 }

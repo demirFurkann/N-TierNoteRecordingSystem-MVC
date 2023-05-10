@@ -3,34 +3,55 @@
     ViewBag.Title = "ListNotes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.ActionLink("Sınav Girişi Yap", "AddNote", null, new { @class = "btn btn-primary" })
+
+<form method="GET" action="/Note/ListNotes">
+    <input type="text" name="search" placeholder="Öğrenci ara...">
+    <button type="submit">Ara</button>
+</form>
+
+
+
+
 
 <div class="container">
     <table class="table table-bordered">
         <tr>
-            <th>Öğrenci</th>
-            <th>Ders</th>
+            <th>Öğrenci İsmi</th>
+            <th>Ders İsmi</th>
             <th>Sınav 1 </th>
             <th>Sınav 2</th>
             <th>Sınav 3</th>
             <th>Proje</th>
             <th>Ortalama</th>
             <th>Durum</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
         </tr>
         <tbody>
             @foreach (NoteVM item in Model.Notes)
             {
                 <tr>
-                    <th>@item.StudentName</th>
-                    <th>@item.LessonName</th>
-                    <th>@item.Exam1</th>
-                    <th>@item.Exam2</th>
-                    <th>@item.Exam3</th>
-                    <th>@item.Project</th>
-                    <th>@item.Avarage</th>
-                    <th>@item.Case</th>
+                    <td>@item.StudentName</td>
+                    <td>@item.LessonName</td>
+                    <td>@item.Exam1</td>
+                    <td>@item.Exam2</td>
+                    <td>@item.Exam3</td>
+                    <td>@item.Project</td>
+                    <td>@item.Avarage</td>
+                    <td>@item.Case</td>
+                    <td>@Html.ActionLink("Sil","DeleteNote", new { id = item.ID }, new {@class="btn btn-warning"})</td>
+                    <td>@Html.ActionLink("Güncelle","UpdateNote", new { id = item.ID }, new {@class="btn btn-danger"})</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+
 

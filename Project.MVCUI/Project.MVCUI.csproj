@@ -565,6 +565,9 @@
     <Content Include="Views\Club\AddClub.cshtml" />
     <Content Include="Views\Club\UpdateClub.cshtml" />
     <Content Include="Views\Student\AddStudent.cshtml" />
+    <Content Include="Views\Note\AddNote.cshtml" />
+    <Content Include="Views\Note\UpdateNote.cshtml" />
+    <Content Include="Views\Student\UpdateStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

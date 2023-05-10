@@ -5,6 +5,7 @@ using Project.VM.PureVMs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,7 +20,7 @@ namespace Project.MVCUI.Controllers
         }
         private List<LessonVM> GetLessonVMs()
         {
-            return _lesRep.Select(x => new LessonVM
+            return _lesRep.Where(x=> x.Status != ENTITIES.Enums.DataStatus.Deleted) .Select(x => new LessonVM
             {
                 ID = x.ID,
                 LessonName = x.LessonName,
@@ -79,7 +80,7 @@ namespace Project.MVCUI.Controllers
 
         public ActionResult DeleteLesson(int id)
         {
-            _lesRep.Destroy(_lesRep.Find(id));
+            _lesRep.Delete(_lesRep.Find(id));
             return RedirectToAction("ListLessons");
         }
     }

@@ -9,5 +9,6 @@ namespace Project.MVCUI.Models.PageVMs
     public class NoteListPageVM
     {
         public List<NoteVM> Notes { get; set; }
+     
     }
 }

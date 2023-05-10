@@ -17,6 +17,10 @@ namespace Project.ENTITIES.Models
 
 
         //Relational Properties
+        public Student()
+        {
+            Notes = new List<Note>();
+        }
 
         public virtual List<Note> Notes { get; set; }
 

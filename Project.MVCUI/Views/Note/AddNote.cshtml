@@ -1,0 +1,110 @@
+﻿@model NoteAddUpdatePageVM
+    @{
+        ViewBag.Title = "AddStudent";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <style>
+        .genislik {
+            width: 300px;
+        }
+    </style>
+
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-sm-12">
+
+                <section class="panel">
+                    <header class="panel-heading">
+                        Öğrenci Ekleme Sayfası
+                    </header>
+
+                    <div class="panel-body">
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2">Ders Adı</label>
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(x => x.Note.LessonID, new SelectList(Model.Lessons, "ID", "LessonName"), "Lütfen seçiniz", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <br /> <br />
+                        <div class="form-group">
+                            <label class="col-sm-2">Öğrenci Adı</label>
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(x => x.Note.StudentID, new SelectList(Model.Students, "ID", "FirstName"), "Lütfen seçiniz", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <br /> <br />
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2">Sınav 1 </label>
+                            <div class="col-sm-10">
+
+
+
+                                @Html.TextBoxFor(x => x.Note.Exam1, new { @class = "form-control genislik" })
+                            </div>
+                        </div>
+
+
+                        <br /> <br />
+
+                        <div class="form-group">
+                            <label class="col-sm-2">Sınav 2 </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(x => x.Note.Exam2, new { @class = "form-control genislik" })
+                            </div>
+                        </div>
+                        <br /> <br />
+
+                        <div class="form-group">
+                            <label class="col-sm-2">Sınav 3 </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(x => x.Note.Exam3, new { @class = "form-control genislik" })
+
+                            </div>
+                        </div>
+                        <br /> <br />
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2">Proje </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(x => x.Note.Project, new { @class = "form-control genislik" })
+
+                            </div>
+                        </div>
+                        <br /> <br />
+
+
+    
+
+                        <div class="form-group">
+                            <label class="col-sm-2">İşlem:</label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary">Ekle</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+        </div>
+    }
+
+
+
+

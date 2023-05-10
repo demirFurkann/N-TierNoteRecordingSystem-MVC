@@ -81,6 +81,7 @@ namespace Project.MVCUI.Controllers
 
         public ActionResult UpdateStudent(int id)
         {
+           
             StudentVM svm = _stuRep.Where(x => x.ID == id).Select(x => new StudentVM
             {
                 ID = x.ID,
@@ -89,12 +90,19 @@ namespace Project.MVCUI.Controllers
                 LastName = x.LastName,
                 Image = x.Image,
                 ClubID = x.ClubID,
+                Club=x.Club.ClubName
 
             }).FirstOrDefault();
+            List<ClubVM> clubs = _clubRep.GetAll().Select(x => new ClubVM
+            {
+                ID = x.ID,
+                ClubName = x.ClubName,
 
+            }).ToList();
             StudentAddUpdatePageVM spvm = new StudentAddUpdatePageVM
             {
-                Student = svm,
+                Student = svm,          
+                Clubs=clubs
             };
             return View(spvm);
         }
@@ -106,7 +114,8 @@ namespace Project.MVCUI.Controllers
             updated.LastName = student.LastName;
             updated.Image = student.Image = ImageUploader.ImageUpload("/Pictures", image, fileName);
             updated.Gender = student.Gender;
-            updated.ClubID = student.ClubID;
+
+            updated.Club.ClubName = student.Club;
             _stuRep.Update(updated);
             return RedirectToAction("ListStudents");
         }
